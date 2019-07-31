@@ -22,9 +22,25 @@ exports.home = (req, res) => {
 };
 
 exports.menuId = (req, res) => {
-    MenuService.findById(id).then(
+    MenuService.findById(req.params.id).then(
         data =>{
             console.log(data)
+            res.json(data);
         }
     )
+}
+
+exports.addMenu = (req, res) => {
+    const menu = req.body;
+
+    MenuService.create(menu)
+        .then(
+            data => {
+                console.log(menu)
+                res.status(201).json(data);
+            },
+            err => {
+                res.status(500).json(err);
+            }
+        );
 }

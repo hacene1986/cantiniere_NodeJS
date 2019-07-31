@@ -14,6 +14,7 @@ const controllers = require('../controllers/menu');
 // http://localhost:8000/lunchtime/
 lunchtime.get('/menu/findall', controllers.home);
 lunchtime.get('/menu/find/:id', controllers.menuId)
+lunchtime.post('/menu/add', controllers.addMenu)
 
 // http://localhost:8000/hello
 app.get('/hello', controllers.hello);

@@ -11,7 +11,9 @@ exports.login = (req, res) => {
         password: body.password
     }).then(
         data => {
+            console.log(data)
             jwtUtil.generateToken(data, (err, token) => {
+                console.log(token)
                 if (err) {
                     res.status(401).json(err);
                     return;
