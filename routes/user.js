@@ -17,3 +17,4 @@ lunchtime.post('/login', controllers.login);
 
 // http://localhost:8000/lunchtime/register
 lunchtime.post('/register', controllers.register);
+lunchtime.get('/user/findall', controllers.home)

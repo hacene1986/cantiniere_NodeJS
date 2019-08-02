@@ -41,3 +41,15 @@ exports.register = (req, res) => {
             }
         );
 }
+
+exports.home = (req, res) => {
+    UserService.all().then(
+        data => {
+           // console.log(data)
+            res.json(data);
+        },
+        err => {
+            res.json(err);
+        }
+    );
+};

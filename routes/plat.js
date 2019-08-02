@@ -9,14 +9,14 @@
 // http://localhost:8080/lunchtime/user/findall
 // http://localhost:8080/lunchtime/order/cancel
 
-const controllers = require('../controllers/menu');
+const controllers = require('../controllers/plat');
 
 // http://localhost:8000/lunchtime/
-lunchtime.get('/menu/findall', controllers.home);
-lunchtime.get('/menu/find/:id', controllers.menuId)
-lunchtime.post('/menu/add', controllers.addMenu)
-lunchtime.put('/menu/update/:id', controllers.update)
-lunchtime.delete('/menu/delete/:id', controllers.delete)
+lunchtime.get('/plat/findall', controllers.home);
+lunchtime.get('/plat/find/:id', controllers.platId)
+lunchtime.post('/plat/add', controllers.addPlat)
+lunchtime.put('/plat/update/:id', controllers.update)
+lunchtime.delete('/plat/delete/:id', controllers.delete)
 
 // http://localhost:8000/hello
 app.get('/hello', controllers.hello);

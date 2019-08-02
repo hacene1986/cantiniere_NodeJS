@@ -1,8 +1,8 @@
 // controllers/index.js
 // Routes by default
 
-const MenuService = require('../services/menu-service');
-const MenuModel = require('../models/menu-model')
+const PlatService = require('../services/plat-service');
+const PlatModel = require('../models/plat-model')
 exports.hello = (req, res) => {
     res.send({
         message: 'Hello guys !'
@@ -10,7 +10,7 @@ exports.hello = (req, res) => {
 }
 
 exports.home = (req, res) => {
-    MenuService.all().then(
+    PlatService.all().then(
         data => {
            // console.log(data)
             res.json(data);
@@ -21,8 +21,8 @@ exports.home = (req, res) => {
     );
 };
 
-exports.menuId = (req, res) => {
-    MenuService.findById(req.params.id).then(
+exports.platId = (req, res) => {
+    PlatService.findById(req.params.id).then(
         data =>{
             console.log(data)
             res.json(data);
@@ -30,13 +30,12 @@ exports.menuId = (req, res) => {
     )
 }
 
-exports.addMenu = (req, res) => {
-    const menu = req.body;
+exports.addPlat = (req, res) => {
+    const plat = req.body;
 
-    MenuService.create(menu)
+    PlatService.create(plat)
         .then(
             data => {
-                console.log(menu)
                 res.status(201).json(data);
             },
             err => {
@@ -47,19 +46,19 @@ exports.addMenu = (req, res) => {
 
 exports.update = (req, res) => {
     const id = req.params.id;
-    MenuModel.update( { label: req.body.label, description: req.body.description, priceDF: req.body.priceDF }, 
+    PlatModel.update( { label: req.body.label, description: req.body.description, priceDF: req.body.priceDF }, 
              { where: {id: req.params.id} }
              ).then(() => {
-             res.status(200).send("updated successfully a customer with id = " + id);
+             res.status(200).send("updated successfully a meal with id = " + id);
              });
   };
 
   exports.delete = (req, res) => {
     const id = req.params.id;
-    MenuModel.destroy({
+    PlatModel.destroy({
       where: { id: id }
     }).then(() => {
-      res.status(200).send('deleted successfully a customer with id = ' + id);
+      res.status(200).send('deleted successfully a meal with id = ' + id);
     });
   };
    

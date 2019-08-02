@@ -33,5 +33,6 @@ app.use(morgan('tiny'));
 app.use('/lunchtime', lunchtime);
 
 require('./routes/menu');
-
+require('./routes/plat')
+require('./routes/order')
 app.listen(8000);
